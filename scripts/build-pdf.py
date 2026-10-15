@@ -9,6 +9,7 @@ file ten times bigger for no visible gain.
     python scripts/build-pdf.py
 """
 
+import functools
 import http.server
 import pathlib
 import re
@@ -49,10 +50,15 @@ def build_print_copy(target: pathlib.Path) -> None:
     )
 
 
+class QuietHandler(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *args):
+        pass
+
+
 def serve(directory: pathlib.Path) -> socketserver.TCPServer:
-    handler = type("Handler", (http.server.SimpleHTTPRequestHandler,),
-                   {"directory": str(directory),
-                    "log_message": lambda *a, **k: None})
+    # `directory` has to go through __init__: as a class attribute it is
+    # overwritten with os.getcwd() and the wrong tree gets served.
+    handler = functools.partial(QuietHandler, directory=str(directory))
     httpd = socketserver.TCPServer(("127.0.0.1", PORT), handler)
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
     return httpd
@@ -68,8 +74,12 @@ def main() -> None:
                 browser = p.chromium.launch()
                 page = browser.new_page(viewport={"width": 1123, "height": 794})
                 page.emulate_media(media="print")
-                page.goto(f"http://127.0.0.1:{PORT}/index.html",
-                          wait_until="networkidle")
+                response = page.goto(f"http://127.0.0.1:{PORT}/index.html",
+                                     wait_until="networkidle")
+                if not response or not response.ok:
+                    raise SystemExit(f"could not load the page: {response}")
+                if page.locator(".project").count() != 5:
+                    raise SystemExit("expected five projects on the page")
                 # every photograph and poster frame must be decoded before printing
                 page.evaluate(
                     "() => Promise.all([...document.images]"

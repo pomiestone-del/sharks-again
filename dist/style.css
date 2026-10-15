@@ -358,6 +358,8 @@ footer{
   white-space:nowrap;
 }
 .project-clip video[controls] + .clip-caption .clip-hint{display:none}
+/* One affordance per row is enough. */
+.project-clip + .project-clip .clip-hint{display:none}
 
 .project-body{margin-top:30px}
 .project-body .lede{
@@ -602,10 +604,10 @@ footer a:hover{color:var(--accent)}
   .p-c .project-body{grid-row:3;grid-column:7 / 12;margin-top:clamp(28px,3.5vw,52px)}
   .p-c .specs{grid-row:3;grid-column:1 / 5;margin-top:clamp(28px,3.5vw,52px)}
 
-  /* 04 — narrow notes left, wide image right */
+  /* 04 — narrow notes left, wide image right; the clips close the left column */
   .p-d .project-body,
   .p-d .specs{grid-column:1 / 5}
-  .p-d .project-figure{grid-column:5 / 13}
+  .p-d .project-figure{grid-column:5 / 13;grid-row:2 / span 3}
 
   /* 05 — small image left, notes inset from the right edge */
   .p-e .project-figure{grid-column:1 / 7}
@@ -623,7 +625,7 @@ footer a:hover{color:var(--accent)}
   }
   .project-clip,
   .project-clip.is-portrait{width:auto;flex:var(--ar) 1 0;min-width:0}
-  .p-d .project-clips{grid-column:5 / 13;--clips-w:470px}
+  .p-d .project-clips{grid-column:1 / 5;--clips-w:100%}
   .p-e .project-clips{grid-column:1 / 10;--clips-w:760px}
 }
 
