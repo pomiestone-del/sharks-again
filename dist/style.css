@@ -11,8 +11,9 @@
   --line:#e6e5df;
   --accent:#d65434;
 
-  --display:'Bricolage Grotesque','Helvetica Neue',Helvetica,Arial,sans-serif;
-  --body:'Newsreader',Georgia,'Songti SC',serif;
+  /* one face for the whole page */
+  --display:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  --body:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
 
   --pad:6vw;
   --gap:2.2vw;
@@ -57,10 +58,9 @@ img{max-width:100%}
 footer{
   font-family:var(--body);
   font-weight:400;
-  font-size:11px;
-  letter-spacing:.15em;
+  font-size:10px;
+  letter-spacing:.11em;
   text-transform:uppercase;
-  font-variant-numeric:lining-nums tabular-nums;
   color:var(--muted);
 }
 
@@ -115,9 +115,9 @@ footer{
   margin:0;
   font-family:var(--display);
   font-weight:800;
-  font-size:clamp(54px,16.5vw,112px);
-  line-height:.9;
-  letter-spacing:-.045em;
+  font-size:clamp(40px,12vw,84px);
+  line-height:1;
+  letter-spacing:-.05em;
 }
 .t-lead{display:block}
 .t-run{
@@ -141,11 +141,11 @@ footer{
 }
 .hero-figure figcaption{
   padding-top:13px;
-  max-width:48ch;
+  max-width:52ch;
   font-style:italic;
   font-weight:400;
-  font-size:14px;
-  line-height:1.5;
+  font-size:12px;
+  line-height:1.6;
   color:var(--muted);
 }
 
@@ -155,8 +155,8 @@ footer{
   margin:0;
   max-width:46ch;
   font-weight:400;
-  font-size:clamp(17px,1.45vw,21px);
-  line-height:1.55;
+  font-size:clamp(14px,1.1vw,16.5px);
+  line-height:1.7;
   color:var(--soft);
 }
 
@@ -177,8 +177,8 @@ footer{
   margin:0;
   font-family:var(--body);
   font-weight:400;
-  font-size:14px;
-  line-height:1.5;
+  font-size:12.5px;
+  line-height:1.6;
   letter-spacing:0;
   text-transform:none;
   color:var(--ink);
@@ -213,8 +213,8 @@ footer{
   grid-row:1;
   font-family:var(--display);
   font-weight:600;
-  font-size:21px;
-  line-height:1.1;
+  font-size:16px;
+  line-height:1.25;
   letter-spacing:-.02em;
   color:var(--ink);
   transition:color .25s ease;
@@ -249,9 +249,9 @@ footer{
   margin:0;
   font-family:var(--display);
   font-weight:700;
-  font-size:clamp(30px,6.6vw,56px);
-  line-height:1;
-  letter-spacing:-.035em;
+  font-size:clamp(24px,5vw,42px);
+  line-height:1.05;
+  letter-spacing:-.04em;
 }
 .project-link{
   margin-left:auto;
@@ -300,11 +300,11 @@ footer{
 
 .project-figure figcaption{
   padding-top:13px;
-  max-width:48ch;
+  max-width:52ch;
   font-style:italic;
   font-weight:400;
-  font-size:14px;
-  line-height:1.5;
+  font-size:12px;
+  line-height:1.6;
   color:var(--muted);
 }
 
@@ -334,8 +334,8 @@ footer{
   margin:11px 0 0;
   font-style:italic;
   font-weight:400;
-  font-size:13px;
-  line-height:1.5;
+  font-size:11.5px;
+  line-height:1.6;
   color:var(--muted);
 }
 .clip-hint{
@@ -361,8 +361,8 @@ footer{
   margin:0;
   font-style:italic;
   font-weight:400;
-  font-size:clamp(17px,1.5vw,21px);
-  line-height:1.45;
+  font-size:clamp(14px,1.2vw,17px);
+  line-height:1.65;
   color:var(--ink);
   text-indent:-.4em;
 }
@@ -374,8 +374,8 @@ footer{
   margin-top:11px;
   font-family:var(--body);
   font-style:normal;
-  font-size:11px;
-  letter-spacing:.15em;
+  font-size:10px;
+  letter-spacing:.11em;
   text-transform:uppercase;
   color:var(--muted);
 }
@@ -385,8 +385,8 @@ footer{
 .project-body{margin-top:30px}
 .project-body .lede{
   margin:0;
-  font-size:clamp(16px,1.3vw,19px);
-  line-height:1.6;
+  font-size:clamp(13.5px,1.05vw,15.5px);
+  line-height:1.72;
   color:var(--ink);
 }
 
@@ -398,8 +398,8 @@ footer{
 .note h3{margin:0 0 7px}
 .note p{
   margin:0;
-  font-size:16px;
-  line-height:1.6;
+  font-size:13px;
+  line-height:1.7;
   color:var(--soft);
 }
 
@@ -418,8 +418,8 @@ footer{
   margin:0;
   font-family:var(--body);
   font-weight:400;
-  font-size:14px;
-  line-height:1.5;
+  font-size:12.5px;
+  line-height:1.6;
   letter-spacing:0;
   text-transform:none;
   color:var(--ink);
@@ -569,7 +569,7 @@ footer a:hover{color:var(--accent)}
   .topbar{height:92px}
   .brand{font-size:23px}
 
-  .hero h1{font-size:clamp(84px,9.4vw,146px);line-height:.88}
+  .hero h1{font-size:clamp(64px,7.8vw,118px);line-height:.98}
   .t-run{margin-left:clamp(24px,4vw,70px)}
 
   /* ten of the twelve columns, so the right edge stays off the margin */
@@ -597,7 +597,7 @@ footer a:hover{color:var(--accent)}
     padding-bottom:20px;
   }
   .index li a{grid-template-columns:28px 1fr;padding:12px 0}
-  .index .t{font-size:17px}
+  .index .t{font-size:14px}
   .index .w{font-size:9.5px}
 
   .project{
@@ -755,7 +755,7 @@ footer a:hover{color:var(--accent)}
     align-items:start;
   }
   .eyebrow{grid-column:1 / -1;margin:0 0 7mm;font-size:7pt}
-  .hero h1{grid-column:1;grid-row:2;font-size:56pt;line-height:.88;letter-spacing:-.045em}
+  .hero h1{grid-column:1;grid-row:2;font-size:40pt;line-height:1;letter-spacing:-.05em}
   .t-run{margin-left:0}
   .hero h1 > span + span{margin-left:20mm}
   .hero-figure{grid-column:2;grid-row:2;margin:0;width:100%}
@@ -773,10 +773,10 @@ footer a:hover{color:var(--accent)}
   }
   .hero-lede{grid-column:auto}
   .hero-meta{grid-column:auto;margin:0}
-  .hero-lede p{font-size:9.5pt;line-height:1.5;max-width:none}
+  .hero-lede p{font-size:8.2pt;line-height:1.6;max-width:none}
   .hero-meta > div{padding:1.2mm 0;grid-template-columns:18mm 1fr;gap:4mm}
   .hero-meta dt{font-size:6.5pt}
-  .hero-meta dd{font-size:7pt}
+  .hero-meta dd{font-size:6.6pt}
   .print-only{
     grid-column:1 / -1;
     grid-row:4;
@@ -808,8 +808,8 @@ footer a:hover{color:var(--accent)}
   .index .d{grid-column:3}
   .index .w{grid-column:4}
   .index .n{font-size:7pt}
-  .index .t{font-size:19pt;letter-spacing:-.025em}
-  .index .d{font-size:9pt;font-style:italic;color:var(--muted)}
+  .index .t{font-size:15pt;letter-spacing:-.025em}
+  .index .d{font-size:7.5pt;font-style:italic;color:var(--muted)}
   .index .w{font-size:7pt;justify-self:end}
 
   /* ---- one page per project ---- */
@@ -826,7 +826,7 @@ footer a:hover{color:var(--accent)}
   }
   .project .project-head{grid-column:1 / -1;grid-row:1;padding-top:0;margin-bottom:5mm;border:0}
   .project-number{font-size:7pt;flex-basis:12mm}
-  .project-head h2{font-size:26pt}
+  .project-head h2{font-size:21pt}
   .project-link{font-size:7pt}
 
   .project .project-figure{grid-column:1;grid-row:2}
@@ -847,7 +847,7 @@ footer a:hover{color:var(--accent)}
   }
   .project-clip,
   .project-clip.is-portrait{flex:0 0 auto;width:auto;max-width:none}
-  .project-clip video{height:34mm;width:auto;max-width:none;display:block;background:none}
+  .project-clip video{height:29mm;width:auto;max-width:none;display:block;background:none}
   .project-clips::after{
     content:'Stills — the clips are moving on the site';
     flex:1 1 100%;
@@ -860,15 +860,15 @@ footer a:hover{color:var(--accent)}
 
   .project .project-body{grid-column:2;grid-row:2;margin-top:0}
   .project-quote{margin:0 0 4mm;padding-bottom:3mm}
-  .project-quote p{font-size:10.5pt;line-height:1.38}
+  .project-quote p{font-size:8.6pt;line-height:1.55}
   .project-quote cite{margin-top:2mm;font-size:6.5pt}
-  .project-body .lede{font-size:9.5pt;line-height:1.5}
+  .project-body .lede{font-size:8.2pt;line-height:1.6}
   .note{margin-top:4mm;padding-top:2.2mm}
   .note h3{font-size:6.5pt;margin-bottom:1.2mm}
-  .note p{font-size:8.5pt;line-height:1.5}
+  .note p{font-size:7.2pt;line-height:1.55}
 
   .project .specs{grid-column:2;grid-row:3;margin-top:4mm}
   .specs > div{padding:1.2mm 0;grid-template-columns:18mm 1fr;gap:4mm}
   .specs dt{font-size:6.5pt}
-  .specs dd{font-size:7pt}
+  .specs dd{font-size:6.6pt}
 }
