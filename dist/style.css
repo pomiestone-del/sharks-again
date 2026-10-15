@@ -219,9 +219,9 @@ footer{
   color:var(--ink);
   transition:color .25s ease;
 }
-/* number and title only on screen; the PDF contents page keeps the rest */
-.index .d,
-.index .w{display:none}
+/* the one-line description is dropped on screen; the PDF contents page keeps it */
+.index .d{display:none}
+.index .w{grid-column:2;font-size:10px;margin-top:1px}
 .index li a:hover .t,
 .index li a.is-current .t{color:var(--accent)}
 .index li a.is-current .n{color:var(--accent)}
@@ -598,7 +598,7 @@ footer a:hover{color:var(--accent)}
   }
   .index li a{grid-template-columns:28px 1fr;padding:12px 0}
   .index .t{font-size:17px}
-  .index .d{font-size:11.5px}
+  .index .w{font-size:9.5px}
 
   .project{
     display:grid;
@@ -801,8 +801,7 @@ footer a:hover{color:var(--accent)}
     gap:6mm;
     padding:4.5mm 0;
   }
-  .index .d,
-  .index .w{display:block}
+  .index .d{display:block}
   .index .n,.index .t,.index .d,.index .w{grid-row:1}
   .index .n{grid-column:1}
   .index .t{grid-column:2}
