@@ -2,7 +2,7 @@
   'use strict';
   const $ = s => document.querySelector(s);
   const fields = [...document.querySelectorAll('[data-edit]')];
-  const storageKey = 'sharks-again-english-v3';
+  const storageKey = 'sharks-again-editorial-v4';
   let editMode = false;
   let toastTimer;
   const notify = text => { $('#toast').textContent = text; $('#toast').classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('#toast').classList.remove('show'), 2600); };
