@@ -13,7 +13,6 @@
 
   --display:'Bricolage Grotesque','Helvetica Neue',Helvetica,Arial,sans-serif;
   --body:'Newsreader',Georgia,'Songti SC',serif;
-  --mono:'DM Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
 
   --pad:6vw;
   --gap:2.2vw;
@@ -56,11 +55,12 @@ img{max-width:100%}
 .specs dt,
 .hero-meta dt,
 footer{
-  font-family:var(--mono);
+  font-family:var(--body);
   font-weight:400;
-  font-size:10px;
-  letter-spacing:.14em;
+  font-size:11px;
+  letter-spacing:.15em;
   text-transform:uppercase;
+  font-variant-numeric:lining-nums tabular-nums;
   color:var(--muted);
 }
 
@@ -95,9 +95,9 @@ footer{
   display:flex;
   align-items:center;
   gap:18px;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.12em;
+  font-family:var(--body);
+  font-size:11px;
+  letter-spacing:.14em;
   text-transform:uppercase;
 }
 .topbar nav a:hover{color:var(--accent)}
@@ -175,10 +175,10 @@ footer{
 .hero-meta dt{margin:0}
 .hero-meta dd{
   margin:0;
-  font-family:var(--mono);
+  font-family:var(--body);
   font-weight:400;
-  font-size:12px;
-  line-height:1.55;
+  font-size:14px;
+  line-height:1.5;
   letter-spacing:0;
   text-transform:none;
   color:var(--ink);
@@ -286,7 +286,7 @@ footer{
   bottom:14px;
   padding:7px 11px;
   background:var(--paper);
-  font-family:var(--mono);
+  font-family:var(--body);
   font-size:9px;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -339,10 +339,10 @@ footer{
   color:var(--muted);
 }
 .clip-hint{
-  font-family:var(--mono);
+  font-family:var(--body);
   font-style:normal;
-  font-size:9px;
-  letter-spacing:.14em;
+  font-size:10px;
+  letter-spacing:.15em;
   text-transform:uppercase;
   color:var(--ink);
   align-self:center;
@@ -372,10 +372,10 @@ footer{
 .project-quote cite{
   display:block;
   margin-top:11px;
-  font-family:var(--mono);
+  font-family:var(--body);
   font-style:normal;
-  font-size:10px;
-  letter-spacing:.14em;
+  font-size:11px;
+  letter-spacing:.15em;
   text-transform:uppercase;
   color:var(--muted);
 }
@@ -416,10 +416,10 @@ footer{
 .specs dt{margin:0}
 .specs dd{
   margin:0;
-  font-family:var(--mono);
+  font-family:var(--body);
   font-weight:400;
-  font-size:12px;
-  line-height:1.55;
+  font-size:14px;
+  line-height:1.5;
   letter-spacing:0;
   text-transform:none;
   color:var(--ink);
@@ -472,14 +472,14 @@ footer a:hover{color:var(--accent)}
 }
 .lightbox-top p{
   margin:0;
-  font-family:var(--mono);
+  font-family:var(--body);
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--muted);
 }
 .lightbox-top button{
-  font-family:var(--mono);
+  font-family:var(--body);
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -515,14 +515,14 @@ footer a:hover{color:var(--accent)}
 .editor-bar:not([hidden]){display:flex}
 .editor-bar p{
   margin:0;
-  font-family:var(--mono);
+  font-family:var(--body);
   font-size:10px;
   letter-spacing:.06em;
 }
 .editor-bar p span{color:var(--muted)}
 .editor-bar > div{display:flex;gap:7px}
 .editor-bar button{
-  font-family:var(--mono);
+  font-family:var(--body);
   font-size:10px;
   letter-spacing:.08em;
   text-transform:uppercase;
@@ -549,7 +549,7 @@ footer a:hover{color:var(--accent)}
   padding:12px 20px;
   background:var(--ink);
   color:var(--paper);
-  font-family:var(--mono);
+  font-family:var(--body);
   font-size:11px;
   z-index:50;
   opacity:0;
@@ -782,7 +782,7 @@ footer a:hover{color:var(--accent)}
     grid-row:4;
     display:block;
     margin:7mm 0 0;
-    font-family:var(--mono);
+    font-family:var(--body);
     font-size:6.5pt;
     letter-spacing:.12em;
     text-transform:uppercase;
@@ -852,7 +852,7 @@ footer a:hover{color:var(--accent)}
   .project-clips::after{
     content:'Stills — the clips are moving on the site';
     flex:1 1 100%;
-    font-family:var(--mono);
+    font-family:var(--body);
     font-size:6pt;
     letter-spacing:.12em;
     text-transform:uppercase;

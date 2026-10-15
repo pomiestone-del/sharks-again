@@ -34,7 +34,7 @@ back to the site.
 - To update the published content for every visitor, edit `dist/index.html` and redeploy. Layout is in `dist/style.css`; interactions are in `dist/script.js`.
 - Original PNG photographs and the two MP4 clips are in `dist/assets`. Clips play muted on loop when scrolled into view, pause when they leave it, and take native controls with sound on click; with `prefers-reduced-motion` they do not autoplay.
 - Click an image to enlarge it; press Escape to close. Responsive layouts and reduced-motion preferences are supported.
-- Fonts (Bricolage Grotesque, Newsreader, DM Mono) load from Google Fonts, with local fallbacks when offline.
+- Two faces, both from Google Fonts with local fallbacks when offline: Bricolage Grotesque for the title and project headings, Newsreader for everything else. Labels are Newsreader too — uppercase, letterspaced and muted — so no block of the page mixes typefaces.
 - The site deploys to GitHub Pages from `.github/workflows/pages.yml` on every push to `main`.
 
 ## Notes
