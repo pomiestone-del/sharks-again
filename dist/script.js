@@ -2,7 +2,7 @@
   'use strict';
   const $ = s => document.querySelector(s);
   const fields = [...document.querySelectorAll('[data-edit]')];
-  const storageKey = 'shark-studies-copy-v1';
+  const storageKey = 'sharks-again-copy-v2';
   let editMode = false;
   let toastTimer;
   const notify = text => { $('#toast').textContent = text; $('#toast').classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('#toast').classList.remove('show'), 2600); };
@@ -28,7 +28,7 @@
   const applyCopy = copy => fields.forEach(el => { if (typeof copy[el.dataset.edit] === 'string') el.replaceChildren(safeMarkup(copy[el.dataset.edit])); });
   try { const saved = JSON.parse(localStorage.getItem(storageKey)); if (saved && typeof saved === 'object') applyCopy(saved); } catch {}
   const saveCopy = () => { try { localStorage.setItem(storageKey, JSON.stringify(readCopy())); } catch { notify('浏览器无法保存，请导出文案备份'); } };
-  const setEditing = value => { editMode = value; document.body.classList.toggle('editing', value); fields.forEach(el => { el.contentEditable = String(value); el.spellcheck = false; }); $('#editor-bar').hidden = !value; $('#edit-toggle').setAttribute('aria-pressed', String(value)); $('#edit-toggle').innerHTML = value ? '正在编辑 <span>✎</span>' : '编辑文字 <span>↗</span>'; if (!value) saveCopy(); };
+  const setEditing = value => { editMode = value; document.body.classList.toggle('editing', value); fields.forEach(el => { el.contentEditable = String(value); el.spellcheck = false; }); $('#editor-bar').hidden = !value; $('#edit-toggle').setAttribute('aria-pressed', String(value)); $('#edit-toggle').textContent = value ? '✓' : '✎'; if (!value) saveCopy(); };
   $('#edit-toggle').addEventListener('click', () => setEditing(!editMode));
   $('#edit-done').addEventListener('click', () => { setEditing(false); notify('文字已保存在此浏览器'); $('#edit-toggle').focus(); });
   fields.forEach(el => { el.addEventListener('input', saveCopy); el.addEventListener('paste', e => { if (!editMode) return; e.preventDefault(); const text = e.clipboardData.getData('text/plain'); const selection = window.getSelection(); if (!selection.rangeCount) return; const range = selection.getRangeAt(0); range.deleteContents(); const node = document.createTextNode(text); range.insertNode(node); range.setStartAfter(node); range.collapse(true); selection.removeAllRanges(); selection.addRange(range); saveCopy(); }); });
