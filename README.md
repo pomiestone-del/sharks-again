@@ -1,13 +1,12 @@
 # SHARKS, AGAIN.
 
-纯白背景的 Fabrication 作品集。一个主标题、五张原始照片、五个作品名称及简短中英说明。每个作品旁的箭头链接至对应的 Notion 制作记录。主题来自博客中反复制作鲨鱼的线索。
+An English-only Fabrication portfolio with a white background, five original photographs, short project notes, and links to the process journal.
 
-## 运行与编辑
+## Run and edit
 
-- 直接打开 `dist/index.html`，也可把 `dist` 部署到任意静态网页服务器。无需安装依赖。
-- 右上角铅笔按钮可编辑标题、作品名称与说明，自动保存在当前浏览器；编辑工具栏可以导出和导入文案备份。不会自动同步至其他设备或发布站点。
-- 永久修改标题、作品名称和链接：编辑 `dist/index.html`；布局：`dist/style.css`；交互：`dist/script.js`。修改后重新部署。
-- `dist/assets` 内包含五张原始 PNG，未重绘、滤镜处理或压缩。
-- 图片点击放大，ESC 关闭；支持手机和减少动画偏好。
-
-Google Fonts 无法联网加载时使用本机字体，其余功能可离线使用。
+- Open `dist/index.html` directly, or host `dist` on any static web server. No build or dependencies required.
+- Use the pencil button to edit titles and project notes. Edits are stored in the current browser. Export and import text to transfer edits between browsers.
+- To update the published content for every visitor, edit `dist/index.html` and redeploy. Layout is in `dist/style.css`; interactions are in `dist/script.js`.
+- Original PNG photographs are in `dist/assets`.
+- Click an image to enlarge it; press Escape to close. Responsive layouts and reduced-motion preferences are supported.
+- Fonts load from Google Fonts, with local fallbacks when offline.
