@@ -4,11 +4,11 @@ An English-only Fabrication portfolio: white background, five original photograp
 
 ## Page structure
 
-1. **Hero** — smaller display title, a lede, and a meta table (course, span, shop tools, control, journal link).
+1. **Hero** — display title, the group photograph of all five objects, a lede, and a meta table (course, span, shop tools, control, journal link).
 2. **Index** — rows 01—05 with title, one-line description and week, each jumping to its project.
 3. **Projects 01—05** — every object gets the same set of blocks, placed on a different part of a 12-column grid so the rhythm stays asymmetric:
    number and title · photograph · caption · process note · "what went wrong" · tools and materials · journal link.
-4. **Closing quote** and footer.
+4. **Footer** with the journal link.
 
 ## Run and edit
 
@@ -24,4 +24,4 @@ An English-only Fabrication portfolio: white background, five original photograp
 - Editable text is marked with `data-edit="..."` in the HTML. Adding or renaming one of those keys changes what the editor saves.
 - The browser storage key is `sharks-again-editorial-v4`; bump it in `script.js` whenever the published copy changes enough that old local edits should be dropped.
 - Desktop placement per project lives in the `@media (min-width: 861px)` block of `style.css` under the `.p-a`—`.p-e` classes. Below that width everything stacks in one column.
-- The five photographs are full-size PNGs (about 11 MB in total). Converting them to WebP would cut the first-load weight substantially without changing the layout.
+- The five photographs are full-size PNGs (about 12 MB in total). Converting them to WebP would cut the first-load weight substantially without changing the layout.

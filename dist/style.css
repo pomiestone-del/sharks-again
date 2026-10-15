@@ -55,7 +55,6 @@ img{max-width:100%}
 .note h3,
 .specs dt,
 .hero-meta dt,
-.closing-source,
 footer{
   font-family:var(--mono);
   font-weight:400;
@@ -365,23 +364,6 @@ footer{
 .specs dd a{border-bottom:1px solid var(--line)}
 .specs dd a:hover{color:var(--accent);border-color:var(--accent)}
 
-/* ---------- closing ---------- */
-
-.closing{
-  padding:clamp(50px,7vw,90px) var(--pad) clamp(60px,8vw,110px);
-  border-top:1px solid var(--line);
-}
-.closing blockquote{
-  margin:0;
-  max-width:17ch;
-  font-weight:300;
-  font-style:italic;
-  font-size:clamp(26px,6vw,54px);
-  line-height:1.16;
-  letter-spacing:-.02em;
-}
-.closing-source{margin:22px 0 0}
-
 /* ---------- footer ---------- */
 
 footer{
@@ -394,7 +376,6 @@ footer{
   border-top:1px solid var(--line);
 }
 footer a:hover{color:var(--accent)}
-.course-label{color:var(--muted)}
 
 /* ---------- reveal ---------- */
 
@@ -589,9 +570,6 @@ footer a:hover{color:var(--accent)}
   .p-e .project-body,
   .p-e .specs{grid-column:8 / 12}
   .p-e .project-body{margin-top:clamp(20px,3vw,46px)}
-
-  .closing blockquote{margin-left:clamp(0px,14vw,240px)}
-  .closing-source{margin-left:clamp(0px,14vw,240px)}
 }
 
 /* Narrow desktops: give the text columns one more column to breathe. */
