@@ -317,12 +317,17 @@ footer{
   color:var(--muted);
 }
 
-/* Short process clips that sit under a project photograph. */
-.project-clip{
+/* Short process clips that sit under a project photograph.
+   Stacked here; laid out in a row of equal height on desktop, where each
+   clip's flex weight is its own aspect ratio (--ar). */
+.project-clips{
   margin-top:clamp(26px,3vw,40px);
-  width:min(100%,420px);
+  display:grid;
+  gap:26px;
+  justify-items:start;
 }
-.project-clip.is-portrait{width:min(100%,272px)}
+.project-clip{width:min(100%,420px)}
+.project-clip.is-portrait{width:min(100%,250px)}
 .project-clip video{
   display:block;
   width:100%;
@@ -607,6 +612,19 @@ footer a:hover{color:var(--accent)}
   .p-e .project-body,
   .p-e .specs{grid-column:8 / 12}
   .p-e .project-body{margin-top:clamp(20px,3vw,46px)}
+
+  /* Clips sit on their own row under the photograph. */
+  .project-clips{
+    grid-row:4;
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    width:min(100%,var(--clips-w,470px));
+  }
+  .project-clip,
+  .project-clip.is-portrait{width:auto;flex:var(--ar) 1 0;min-width:0}
+  .p-d .project-clips{grid-column:5 / 13;--clips-w:470px}
+  .p-e .project-clips{grid-column:1 / 10;--clips-w:760px}
 }
 
 /* Narrow desktops: give the text columns one more column to breathe. */
@@ -668,4 +686,160 @@ footer a:hover{color:var(--accent)}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none !important;animation:none !important}
   .motion-ready .reveal{opacity:1;transform:none}
+}
+
+/* =========================================================
+   PRINT — the PDF edition.
+   A4 landscape: cover, contents, then one page per project.
+   Placement rules are written as `.project .x` so they outrank
+   the `.p-a`—`.p-e` screen variants, which also match here.
+   ========================================================= */
+
+.print-only{display:none}
+
+@page{size:297mm 210mm;margin:13mm 15mm}
+
+@media print{
+  html{scroll-behavior:auto}
+  body{
+    max-width:none;
+    margin:0;
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+  }
+
+  .reading-progress,
+  .topbar,
+  .editor-bar,
+  .toast,
+  .lightbox,
+  .clip-hint,
+  .clip-caption,
+  .index .a,
+  footer{display:none !important}
+
+  .photo-button::after{display:none}
+  .photo-button:hover img{transform:none}
+  .reveal,
+  .motion-ready .reveal{opacity:1 !important;transform:none !important}
+  a{text-decoration:none}
+  img,video{break-inside:avoid}
+
+  /* ---- page 1: cover ---- */
+
+  .hero{
+    padding:0;
+    break-after:page;
+    break-inside:avoid;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:12mm;
+    align-items:start;
+  }
+  .eyebrow{grid-column:1 / -1;margin:0 0 7mm;font-size:7pt}
+  .hero h1{grid-column:1;grid-row:2;font-size:62pt;line-height:.88;letter-spacing:-.045em}
+  .hero h1 > span + span{margin-left:20mm}
+  .hero-figure{grid-column:2;grid-row:2;margin:0;width:100%}
+  .hero-figure .photo-button{width:auto;background:none}
+  .hero-figure img{width:auto;max-width:100%;max-height:86mm}
+  .hero-figure figcaption{font-size:7.5pt;padding-top:2mm;max-width:none}
+  .hero-grid{
+    grid-column:1 / -1;
+    grid-row:3;
+    margin-top:9mm;
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    column-gap:12mm;
+    align-items:start;
+  }
+  .hero-lede{grid-column:auto}
+  .hero-meta{grid-column:auto;margin:0}
+  .hero-lede p{font-size:9.5pt;line-height:1.5;max-width:none}
+  .hero-meta > div{padding:1.2mm 0;grid-template-columns:18mm 1fr;gap:4mm}
+  .hero-meta dt{font-size:6.5pt}
+  .hero-meta dd{font-size:7pt}
+  .print-only{
+    grid-column:1 / -1;
+    grid-row:4;
+    display:block;
+    margin:7mm 0 0;
+    font-family:var(--mono);
+    font-size:6.5pt;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* ---- page 2: contents ---- */
+
+  .index{padding:0;break-after:page;break-inside:avoid}
+  .band-label{font-size:7pt;margin-bottom:6mm}
+  .index li a{
+    display:grid;
+    grid-template-columns:14mm 70mm 1fr 22mm;
+    gap:6mm;
+    padding:4.5mm 0;
+    transform:none;
+  }
+  .index .n{font-size:7pt}
+  .index .t{font-size:19pt;letter-spacing:-.025em}
+  .index .d{font-size:9pt;padding-left:0;flex:none}
+  .index .w{font-size:7pt;margin-left:0;justify-self:end}
+
+  /* ---- one page per project ---- */
+
+  .collection{padding:0}
+
+  .project{
+    display:grid;
+    grid-template-columns:1.45fr 1fr;
+    column-gap:10mm;
+    padding:0;
+    break-before:page;
+    break-inside:avoid;
+  }
+  .project .project-head{grid-column:1 / -1;grid-row:1;padding-top:0;margin-bottom:5mm;border:0}
+  .project-number{font-size:7pt;flex-basis:12mm}
+  .project-head h2{font-size:26pt}
+  .project-link{font-size:7pt}
+
+  .project .project-figure{grid-column:1;grid-row:2}
+  .project-figure .photo-button{width:auto;background:none}
+  .project-figure img{width:auto;max-width:100%;max-height:106mm}
+  .project:has(.project-clips) .project-figure img{max-height:76mm}
+  .project-figure figcaption{font-size:8pt;padding-top:2.5mm;max-width:none}
+
+  .project .project-clips{
+    grid-column:1;
+    grid-row:3;
+    display:flex;
+    flex-wrap:wrap;
+    gap:3mm 5mm;
+    width:auto;
+    margin-top:5mm;
+    align-items:flex-start;
+  }
+  .project-clip,
+  .project-clip.is-portrait{flex:0 0 auto;width:auto;max-width:none}
+  .project-clip video{height:34mm;width:auto;max-width:none;display:block;background:none}
+  .project-clips::after{
+    content:'Stills — the clips are moving on the site';
+    flex:1 1 100%;
+    font-family:var(--mono);
+    font-size:6pt;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .project .project-body{grid-column:2;grid-row:2;margin-top:0}
+  .project-body .lede{font-size:10pt;line-height:1.52}
+  .note{margin-top:4mm;padding-top:2.2mm}
+  .note h3{font-size:6.5pt;margin-bottom:1.2mm}
+  .note p{font-size:8.5pt;line-height:1.5}
+
+  .project .specs{grid-column:2;grid-row:3;margin-top:4mm}
+  .specs > div{padding:1.2mm 0;grid-template-columns:18mm 1fr;gap:4mm}
+  .specs dt{font-size:6.5pt}
+  .specs dd{font-size:7pt}
 }

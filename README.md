@@ -9,7 +9,22 @@ An English-only Fabrication portfolio: white background, five original photograp
 3. **Projects 01—05** — every object gets the same set of blocks, placed on a different part of a 12-column grid so the rhythm stays asymmetric:
    number and title · photograph · caption · process note · "what went wrong" · tools and materials · journal link.
    Projects 04 and 05 also carry a short clip from the journal, under the photograph.
-4. **Footer** with the journal link.
+4. **Footer** with the journal link and the PDF download.
+
+## PDF edition
+
+`dist/sharks-again-portfolio.pdf` is the same design as A4 landscape, seven pages:
+cover, contents, then one page per project. It is produced from the site itself —
+the layout lives in the `@media print` block of `dist/style.css` — so the two cannot
+drift apart. Rebuild it after any change to the page:
+
+```
+pip install playwright pillow && playwright install chromium
+python scripts/build-pdf.py
+```
+
+Videos cannot play in a PDF, so the clips print as still frames with a line pointing
+back to the site.
 
 ## Run and edit
 
@@ -19,6 +34,7 @@ An English-only Fabrication portfolio: white background, five original photograp
 - Original PNG photographs and the two MP4 clips are in `dist/assets`. Clips play muted on loop when scrolled into view, pause when they leave it, and take native controls with sound on click; with `prefers-reduced-motion` they do not autoplay.
 - Click an image to enlarge it; press Escape to close. Responsive layouts and reduced-motion preferences are supported.
 - Fonts (Bricolage Grotesque, Newsreader, DM Mono) load from Google Fonts, with local fallbacks when offline.
+- The site deploys to GitHub Pages from `.github/workflows/pages.yml` on every push to `main`.
 
 ## Notes
 

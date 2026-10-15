@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Mono:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..400&display=swap">
-<link rel="stylesheet" href="style.css?v=video1">
-<script src="script.js?v=video1" defer></script>
+<link rel="stylesheet" href="style.css?v=print1">
+<script src="script.js?v=print1" defer></script>
 </head>
 <body>
 <div class="reading-progress" aria-hidden="true"></div>
@@ -50,6 +50,7 @@
       <div><dt>Journal</dt><dd><a href="https://troubled-chauffeur-996.notion.site/Intro-to-fab-doc-3dd5e318224280dd9da1c4c86c6b1a5e?source=copy_link" target="_blank" rel="noopener">Full process notes ↗</a></dd></div>
     </dl>
   </div>
+  <p class="print-only">The clips in this portfolio are moving images. Watch them at pomiestone-del.github.io/sharks-again</p>
 </section>
 
 <nav class="index" id="index" aria-label="Project index">
@@ -152,11 +153,17 @@
         <img src="assets/05-jaws.png" alt="An open-mouthed wooden shark head connected to an Arduino and breadboard" loading="lazy" width="1448" height="1086">
       </button>
       <figcaption data-edit="caption-04">The upper shell lifts on a servo; the teeth are offset so the mouth can close.</figcaption>
-      <div class="project-clip is-portrait">
+    </figure>
+    <div class="project-clips">
+      <div class="project-clip is-portrait" style="--ar:.5625">
         <video src="assets/04-clip.mp4" poster="assets/04-clip.jpg" width="720" height="1280" muted loop playsinline preload="none" aria-label="The shark head turning toward a raised hand and opening its mouth"></video>
         <p class="clip-caption"><span data-edit="clip-04">The head turning toward my hand, mouth closing when I close my fist.</span> <span class="clip-hint">Click for sound</span></p>
       </div>
-    </figure>
+      <div class="project-clip is-portrait" style="--ar:.70313">
+        <video src="assets/04-clip-b.mp4" poster="assets/04-clip-b.jpg" width="720" height="1024" muted loop playsinline preload="none" aria-label="The same rig running smoothly after the battery change, with the hand tracking visible on the laptop"></video>
+        <p class="clip-caption"><span data-edit="clip-04b">The same rig once the 5 V pack went in — no more stalling.</span> <span class="clip-hint">Click for sound</span></p>
+      </div>
+    </div>
     <div class="project-body">
       <p class="lede" data-edit="detail-04-en">An enclosure for two servos and a pan-tilt bracket I carried over from home. Keeping the shark's curves in laser-cut plywood was too hard, so the head went boxy — which let one servo lift the whole upper shell to open the mouth. A webcam tracks my hand through MediaPipe: the head turns toward it, and the mouth closes when I close my fist.</p>
       <div class="note">
@@ -181,11 +188,17 @@
         <img src="assets/04-rope.png" alt="A yarn-wrapped shark, wooden crank mechanism, electronics and a glass bowl of water" loading="lazy" width="1448" height="1086">
       </button>
       <figcaption data-edit="caption-05">Yarn-wrapped body, wooden crank, and a bowl to catch what comes out.</figcaption>
-      <div class="project-clip">
+    </figure>
+    <div class="project-clips">
+      <div class="project-clip" style="--ar:1.64444">
         <video src="assets/05-clip.mp4" poster="assets/05-clip.jpg" width="1184" height="720" muted loop playsinline preload="none" aria-label="The finished automaton being hand-cranked so the shark rises and sprays water"></video>
         <p class="clip-caption"><span data-edit="clip-05">Turning the crank: the cam comes around, hits the button, and the shark sprays.</span> <span class="clip-hint">Click for sound</span></p>
       </div>
-    </figure>
+      <div class="project-clip is-portrait" style="--ar:.5625">
+        <video src="assets/05-clip-b.mp4" poster="assets/05-clip-b.jpg" width="720" height="1280" muted loop playsinline preload="none" aria-label="The finished automaton running on the bench, water spraying into the bowl"></video>
+        <p class="clip-caption"><span data-edit="clip-05b">The finished piece, running.</span> <span class="clip-hint">Click for sound</span></p>
+      </div>
+    </div>
     <div class="project-body">
       <p class="lede" data-edit="detail-05-en">The final project: a hand-cranked shark that sprays water when a cam inside comes around and presses a button. It began as a cardboard prototype — an arcade button turned out to be the only one easy enough to trigger — then went through several Blender models before anything was cut. The wood I ordered turned out to be balsa, so light and soft that screws went straight in without pre-drilling. The shark itself is carved foam; the surface came out rough, so I wrapped it in yarn I found in a cabinet behind me.</p>
       <div class="note">
@@ -209,6 +222,7 @@
 
 <footer>
   <a href="https://troubled-chauffeur-996.notion.site/Intro-to-fab-doc-3dd5e318224280dd9da1c4c86c6b1a5e?source=copy_link" target="_blank" rel="noopener">Process journal ↗</a>
+  <a href="sharks-again-portfolio.pdf" download>Portfolio PDF ↓</a>
   <a href="#top">Back to top ↑</a>
 </footer>
 
