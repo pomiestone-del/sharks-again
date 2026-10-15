@@ -219,15 +219,9 @@ footer{
   color:var(--ink);
   transition:color .25s ease;
 }
-.index .d{
-  grid-column:2;
-  font-style:italic;
-  font-weight:400;
-  font-size:13px;
-  line-height:1.4;
-  color:var(--muted);
-}
-.index .w{grid-column:2;font-size:9px}
+/* number and title only on screen; the PDF contents page keeps the rest */
+.index .d,
+.index .w{display:none}
 .index li a:hover .t,
 .index li a.is-current .t{color:var(--accent)}
 .index li a.is-current .n{color:var(--accent)}
@@ -807,6 +801,8 @@ footer a:hover{color:var(--accent)}
     gap:6mm;
     padding:4.5mm 0;
   }
+  .index .d,
+  .index .w{display:block}
   .index .n,.index .t,.index .d,.index .w{grid-row:1}
   .index .n{grid-column:1}
   .index .t{grid-column:2}
@@ -814,7 +810,7 @@ footer a:hover{color:var(--accent)}
   .index .w{grid-column:4}
   .index .n{font-size:7pt}
   .index .t{font-size:19pt;letter-spacing:-.025em}
-  .index .d{font-size:9pt}
+  .index .d{font-size:9pt;font-style:italic;color:var(--muted)}
   .index .w{font-size:7pt;justify-self:end}
 
   /* ---- one page per project ---- */
