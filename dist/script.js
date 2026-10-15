@@ -2,7 +2,7 @@
   'use strict';
   const $ = s => document.querySelector(s);
   const fields = [...document.querySelectorAll('[data-edit]')];
-  const storageKey = 'sharks-again-editorial-v4';
+  const storageKey = 'sharks-again-sidebar-v5';
   let editMode = false;
   let toastTimer;
   const notify = text => { $('#toast').textContent = text; $('#toast').classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('#toast').classList.remove('show'), 2600); };
@@ -41,6 +41,24 @@
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) { document.body.classList.add('motion-ready'); const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), {threshold:0.08}); document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); }
+  const railLinks = [...document.querySelectorAll('.index a[href^="#project-"]')];
+  if (railLinks.length && 'IntersectionObserver' in window) {
+    const byId = new Map(railLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const seen = new Set();
+    const mark = () => {
+      let current = null;
+      railLinks.forEach(a => { const id = a.getAttribute('href').slice(1); if (seen.has(id)) current = a; });
+      railLinks.forEach(a => a.classList.toggle('is-current', a === current));
+    };
+    const rail = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) seen.add(entry.target.id); else seen.delete(entry.target.id);
+      });
+      mark();
+    }, {rootMargin: '-25% 0px -60% 0px'});
+    byId.forEach((a, id) => { const section = document.getElementById(id); if (section) rail.observe(section); });
+  }
+
   const clips = [...document.querySelectorAll('.project-clip video')];
   if (clips.length) {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
