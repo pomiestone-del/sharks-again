@@ -10,3 +10,4 @@
 @media(max-width:640px){.hero-note{position:static;max-width:none;margin:35px 3% 0}.hero-note .project-description p{font-size:12px}.hero-note .project-description .english{font-size:11px}.project-description{margin:15px 0 0 23px;max-width:420px}.project-description p{font-size:12px}.project-description .english{font-size:11px}}
 
 .project-description .english{font-size:12px;line-height:1.85;color:#424640;margin-top:0}.hero-note .project-description .english{font-size:11px}@media(max-width:1100px) and (min-width:641px){.hero-note .project-description .english{font-size:10px}}@media(max-width:640px){.hero-note .project-description .english{font-size:12px}}
+.hero-image .photo-button{aspect-ratio:4/3}.hero-image img{height:100%;object-fit:contain}
