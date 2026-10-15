@@ -116,10 +116,10 @@ footer{
 /* ---------- hero ---------- */
 
 .hero{
-  padding:clamp(48px,9vw,110px) var(--pad) clamp(50px,7vw,86px);
+  padding:clamp(40px,6vw,72px) var(--pad) clamp(50px,7vw,86px);
 }
 
-.eyebrow{margin:0 0 clamp(26px,4vw,44px)}
+.eyebrow{margin:0 0 clamp(24px,3vw,34px)}
 
 .hero h1{
   margin:0;
@@ -131,6 +131,19 @@ footer{
 }
 .hero h1 > span{display:block}
 .hero h1 > span + span{margin-top:.04em}
+
+.hero-figure{
+  margin:clamp(28px,4vw,44px) 0 0;
+}
+.hero-figure figcaption{
+  padding-top:13px;
+  max-width:48ch;
+  font-style:italic;
+  font-weight:300;
+  font-size:14px;
+  line-height:1.5;
+  color:var(--muted);
+}
 
 .hero-grid{margin-top:clamp(40px,6vw,76px)}
 
@@ -514,6 +527,9 @@ footer a:hover{color:var(--accent)}
 
   .hero h1{font-size:clamp(84px,9.4vw,146px);line-height:.88}
   .hero h1 > span + span{margin-left:clamp(40px,7vw,120px)}
+
+  /* ten of the twelve columns, so the right edge stays off the margin */
+  .hero-figure{width:calc(83.333% - 0.1667 * var(--gap))}
 
   .hero-grid{
     display:grid;
