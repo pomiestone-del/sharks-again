@@ -603,6 +603,10 @@ footer a:hover{color:var(--accent)}
   .project{
     display:grid;
     grid-template-columns:repeat(12,1fr);
+    /* the photograph spans these rows; sizing the early ones to their own
+       content sends its leftover height to the last row instead of
+       opening a gap under the text */
+    grid-template-rows:auto min-content min-content auto;
     column-gap:var(--gap);
     align-items:start;
   }
@@ -612,14 +616,14 @@ footer a:hover{color:var(--accent)}
   .specs{grid-row:3;align-self:start}
 
   /* 01 — image left, notes right */
-  .p-a .project-figure{grid-column:1 / 8}
+  .p-a .project-figure{grid-column:1 / 8;grid-row:2 / -1}
   .p-a .project-body,
   .p-a .specs{grid-column:9 / 13}
 
   /* 02 — notes left, image dropped down on the right */
   .p-b .project-body,
   .p-b .specs{grid-column:1 / 5}
-  .p-b .project-figure{grid-column:6 / 13;margin-top:clamp(40px,6vw,96px)}
+  .p-b .project-figure{grid-column:6 / 13;grid-row:2 / -1;margin-top:clamp(40px,6vw,96px)}
 
   /* 03 — image anchored left, two-column foot under the full width */
   .p-c .project-figure{grid-row:2;grid-column:1 / 9}
