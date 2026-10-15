@@ -8,6 +8,7 @@ An English-only Fabrication portfolio: white background, five original photograp
 2. **Index** — rows 01—05 with title, one-line description and week, each jumping to its project.
 3. **Projects 01—05** — every object gets the same set of blocks, placed on a different part of a 12-column grid so the rhythm stays asymmetric:
    number and title · photograph · caption · process note · "what went wrong" · tools and materials · journal link.
+   Projects 04 and 05 also carry a short clip from the journal, under the photograph.
 4. **Footer** with the journal link.
 
 ## Run and edit
@@ -15,7 +16,7 @@ An English-only Fabrication portfolio: white background, five original photograp
 - Open `dist/index.html` directly, or host `dist` on any static web server. No build or dependencies required.
 - Use the pencil button to edit titles, descriptions, notes and specs. Edits are stored in the current browser. Export and import text to transfer edits between browsers.
 - To update the published content for every visitor, edit `dist/index.html` and redeploy. Layout is in `dist/style.css`; interactions are in `dist/script.js`.
-- Original PNG photographs are in `dist/assets`.
+- Original PNG photographs and the two MP4 clips are in `dist/assets`. Clips play muted on loop when scrolled into view, pause when they leave it, and take native controls with sound on click; with `prefers-reduced-motion` they do not autoplay.
 - Click an image to enlarge it; press Escape to close. Responsive layouts and reduced-motion preferences are supported.
 - Fonts (Bricolage Grotesque, Newsreader, DM Mono) load from Google Fonts, with local fallbacks when offline.
 

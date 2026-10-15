@@ -317,6 +317,43 @@ footer{
   color:var(--muted);
 }
 
+/* Short process clips that sit under a project photograph. */
+.project-clip{
+  margin-top:clamp(26px,3vw,40px);
+  width:min(100%,420px);
+}
+.project-clip.is-portrait{width:min(100%,272px)}
+.project-clip video{
+  display:block;
+  width:100%;
+  height:auto;
+  background:#faf9f7;
+  cursor:pointer;
+}
+.project-clip video[controls]{cursor:default}
+.clip-caption{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px 10px;
+  margin:11px 0 0;
+  font-style:italic;
+  font-weight:300;
+  font-size:13px;
+  line-height:1.5;
+  color:var(--muted);
+}
+.clip-hint{
+  font-family:var(--mono);
+  font-style:normal;
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink);
+  align-self:center;
+  white-space:nowrap;
+}
+.project-clip video[controls] + .clip-caption .clip-hint{display:none}
+
 .project-body{margin-top:30px}
 .project-body .lede{
   margin:0;

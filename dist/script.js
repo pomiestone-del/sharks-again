@@ -41,6 +41,32 @@
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) { document.body.classList.add('motion-ready'); const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), {threshold:0.08}); document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); }
+  const clips = [...document.querySelectorAll('.project-clip video')];
+  if (clips.length) {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    clips.forEach(video => {
+      video.muted = true;
+      if (reduce) { video.preload = 'metadata'; video.controls = true; return; }
+      video.addEventListener('click', () => {
+        if (video.controls) return;
+        video.controls = true;
+        video.muted = false;
+        video.play().catch(() => {});
+      });
+    });
+    if (!reduce) {
+      const play = video => { if (video.preload === 'none') video.preload = 'auto'; video.play().catch(() => {}); };
+      if ('IntersectionObserver' in window) {
+        const watcher = new IntersectionObserver(entries => entries.forEach(entry => {
+          if (entry.isIntersecting) { if (!entry.target.controls) play(entry.target); } else entry.target.pause();
+        }), {threshold: 0.4});
+        clips.forEach(video => watcher.observe(video));
+      } else {
+        clips.forEach(play);
+      }
+    }
+  }
+
   let pending = false;
   const progress = () => { const total = document.documentElement.scrollHeight - innerHeight; $('.reading-progress').style.width = (total > 0 ? Math.min(100, scrollY / total * 100) : 0) + '%'; pending = false; };
   addEventListener('scroll', () => { if (!pending) { requestAnimationFrame(progress); pending = true; } }, {passive:true}); addEventListener('resize', progress); progress();
